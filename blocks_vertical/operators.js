@@ -432,7 +432,7 @@ Blockly.Blocks['operator_round'] = {
 Blockly.Blocks['operator_mathop'] = {
   /**
    * Block for "advanced" math ops on a number.
-   * @this Blockly.Block
+   * @this Blockly.Blocks
    */
   init: function() {
     this.jsonInit({
@@ -454,8 +454,8 @@ Blockly.Blocks['operator_mathop'] = {
             [Blockly.Msg.OPERATORS_MATHOP_ATAN, 'atan'],
             [Blockly.Msg.OPERATORS_MATHOP_LN, 'ln'],
             [Blockly.Msg.OPERATORS_MATHOP_LOG, 'log'],
-            [Blockly.Msg.OPERATORS_MATHOP_EEXP, 'e ^'],
-            [Blockly.Msg.OPERATORS_MATHOP_10EXP, '10 ^']
+            [Blockly.Msg.OPERATORS_MATHOP_EEXP, 'e exponent'],
+            [Blockly.Msg.OPERATORS_MATHOP_10EXP, '10 exponent']
           ]
         },
         {
