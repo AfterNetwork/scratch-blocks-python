@@ -113,7 +113,7 @@ Blockly.Block = function(workspace, prototypeName, opt_id) {
    * @type {boolean}
    * @private
    */
-  this.editable_ = true;
+  this.editable_ = false;
 
   /**
    * @type {boolean}
