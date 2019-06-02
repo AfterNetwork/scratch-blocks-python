@@ -194,8 +194,8 @@ Blockly.Blocks['motion_goto_menu'] = {
 
 Blockly.Blocks['motion_gotoxy'] = {
   /**
-   * Block to go to X, Y.
    * @this Blockly.Block
+   * Block to go to X, Y.
    */
   init: function() {
     this.jsonInit({
