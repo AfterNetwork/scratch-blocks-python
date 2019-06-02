@@ -51,7 +51,7 @@ Blockly.Variables.NAME_TYPE = Blockly.VARIABLE_CATEGORY_NAME;
  * @type {string}
  * @package
  */
-Blockly.Variables.CLOUD_PREFIX = '☁ ';
+Blockly.Variables.CLOUD_PREFIX = 'Cloud: '; // Switched Cloud prefix from symbol to word
 
 /**
  * Find all user-created variables that are in use in the workspace.
