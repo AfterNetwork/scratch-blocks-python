@@ -181,6 +181,7 @@ Blockly.Blocks['sensing_answer'] = {
   /**
    * Block to report answer
    * @this Blockly.Block
+   * Could be possibly python based
    */
   init: function() {
     this.jsonInit({
