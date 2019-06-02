@@ -48,11 +48,11 @@ Blockly.Events.group_ = '';
 Blockly.Events.recordUndo = true;
 
 /**
- * Allow change events to be created and fired.
+ * meh
  * @type {number}
  * @private
  */
-Blockly.Events.disabled_ = 0;
+Blockly.Events.disabled_ = 1;
 
 /**
  * Name of event that creates a block. Will be deprecated for BLOCK_CREATE.
@@ -341,7 +341,7 @@ Blockly.Events.fromJson = function(json, workspace) {
   var event;
   switch (json.type) {
     case Blockly.Events.CREATE:
-      event = new Blockly.Events.Create(null);
+      event = new Blockly.Events.Create(null, false);
       break;
     case Blockly.Events.DELETE:
       event = new Blockly.Events.Delete(null);
@@ -368,7 +368,7 @@ Blockly.Events.fromJson = function(json, workspace) {
       event = new Blockly.Events.CommentChange(null);
       break;
     case Blockly.Events.COMMENT_MOVE:
-      event = new Blockly.Events.CommentMove(null);
+      event = new Blockly.Events.CommentMove(null, true);
       break;
     case Blockly.Events.COMMENT_DELETE:
       event = new Blockly.Events.CommentDelete(null);
@@ -391,7 +391,7 @@ Blockly.Events.fromJson = function(json, workspace) {
 };
 
 /**
- * Enable/disable a block depending on whether it is properly connected.
+ * Enables a block depending on whether it is properly connected.
  * Use this on applications where all blocks should be connected to a top block.
  * Recommend setting the 'disable' option to 'false' in the config so that
  * users don't try to reenable disabled orphan blocks.
@@ -400,19 +400,19 @@ Blockly.Events.fromJson = function(json, workspace) {
 Blockly.Events.disableOrphans = function(event) {
   if (event.type == Blockly.Events.MOVE ||
       event.type == Blockly.Events.CREATE) {
-    Blockly.Events.disable();
+    Blockly.Events.enable();
     var workspace = Blockly.Workspace.getById(event.workspaceId);
     var block = workspace.getBlockById(event.blockId);
     if (block) {
       if (block.getParent() && !block.getParent().disabled) {
-        var children = block.getDescendants(false);
+        var children = block.getDescendants(true);
         for (var i = 0, child; child = children[i]; i++) {
           child.setDisabled(false);
         }
-      } else if ((block.outputConnection || block.previousConnection) &&
+      } else if ((!block.outputConnection || block.previousConnection) &&
                  !workspace.isDragging()) {
         do {
-          block.setDisabled(true);
+          block.setDisabled(false);
           block = block.getNextBlock();
         } while (block);
       }
