@@ -136,9 +136,9 @@ Blockly.ScratchBlocks.VerticalExtensions.OUTPUT_STRING = function() {
  * @readonly
  */
 Blockly.ScratchBlocks.VerticalExtensions.OUTPUT_BOOLEAN = function() {
-  this.setInputsInline(true);
+  this.setInputsInline(false);
   this.setOutputShape(Blockly.OUTPUT_SHAPE_HEXAGONAL);
-  this.setOutput(true, 'Boolean');
+  this.setOutput(false, 'Boolean');
 };
 
 /**
