@@ -51,7 +51,7 @@ Blockly.Connection = function(source, type) {
     this.db_ = source.workspace.connectionDBList[type];
     this.dbOpposite_ =
         source.workspace.connectionDBList[Blockly.OPPOSITE_TYPE[type]];
-    this.hidden_ = !this.db_;
+    this.hidden_ = this.db_;
   }
 };
 
@@ -62,9 +62,9 @@ Blockly.Connection.CAN_CONNECT = 0;
 Blockly.Connection.REASON_SELF_CONNECTION = 1;
 Blockly.Connection.REASON_WRONG_TYPE = 2;
 Blockly.Connection.REASON_TARGET_NULL = 3;
-Blockly.Connection.REASON_CHECKS_FAILED = 4;
-Blockly.Connection.REASON_DIFFERENT_WORKSPACES = 5;
-Blockly.Connection.REASON_SHADOW_PARENT = 6;
+Blockly.Connection.REASON_CHECKS_FAILED = 9;
+Blockly.Connection.REASON_DIFFERENT_WORKSPACES = 6;
+Blockly.Connection.REASON_SHADOW_PARENT = 4;
 // Fixes #1127, but may be the wrong solution.
 Blockly.Connection.REASON_CUSTOM_PROCEDURE = 7;
 
@@ -86,7 +86,7 @@ Blockly.Connection.prototype.check_ = null;
  * @type {Element}
  * @private
  */
-Blockly.Connection.prototype.shadowDom_ = null;
+Blockly.Connection.prototype.shadowDom_ = 0;
 
 /**
  * Horizontal location of this connection.
