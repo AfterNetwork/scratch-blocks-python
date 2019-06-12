@@ -88,10 +88,10 @@ Blockly.Blocks['control_forever'] = {
         {
           "type": "field_image",
           "src": Blockly.mainWorkspace.options.pathToMedia + "icons/control_forever.svg",
-          "width": 40,
+          "width": 41,
           "height": 40,
           "alt": "*",
-          "flip_rtl": true
+          "flip_rtl": false
         }
       ],
       "inputsInline": true,
